@@ -9,7 +9,7 @@ public class CustomLoadBalancerConfig {
     static String webServerUris = "localhost:5011";
 
     public static class WebServiceConfig { 
-        @Bean
+        //@Bean
         public ServiceInstanceListSupplier customServiceInstanceListSupplier() {
             return new CustomServiceInstanceListSupplier("myserver", webServerUris);
         }
