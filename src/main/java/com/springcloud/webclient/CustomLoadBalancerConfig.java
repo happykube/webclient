@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class CustomLoadBalancerConfig {
-    static String webServerUris = "webserver-0:5011,webserver-1:5011";
+    static String webServerUris = "webserver-0.webserver:5011,webserver-1.webserver:5011";
 
     public static class WebServiceConfig { 
         @Bean
