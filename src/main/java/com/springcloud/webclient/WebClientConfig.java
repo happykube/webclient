@@ -1,7 +1,5 @@
 package com.springcloud.webclient;
 
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
@@ -17,12 +15,10 @@ import reactor.core.publisher.Mono;
 import reactor.netty.http.client.HttpClient;
 
 @Configuration
-//@LoadBalancerClient(value = "myserver", configuration = CustomLoadBalancerConfig.class)
 public class WebClientConfig {
     private final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(getClass());
     
     @Bean
-    @LoadBalanced
     public WebClient webClient() {
         HttpClient httpClient = HttpClient.create()
             .tcpConfiguration(
