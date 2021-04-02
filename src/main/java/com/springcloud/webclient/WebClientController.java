@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import io.swagger.annotations.ApiOperation;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -21,6 +22,7 @@ public class WebClientController {
     private WebClient webClient;
 
     @GetMapping("/testscl2")
+    @ApiOperation( value = "Config overriding", notes="mutate로 WebClient Config를 overriding")
     public Mono<String> testSCL2() {
         return webClient
                 .mutate() 

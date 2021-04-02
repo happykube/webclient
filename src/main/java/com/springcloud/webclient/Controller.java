@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import io.swagger.annotations.ApiOperation;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -17,6 +18,7 @@ public class Controller {
     }
 
     @GetMapping("/testscl1")    
+    @ApiOperation( value = "webclient sample", notes="WebClient로 L/B하는 예")
     public Mono<String> testSCL1() {
         WebClient client = WebClient.builder()
             .filter(this.lbFunction)
